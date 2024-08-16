@@ -1,0 +1,48 @@
+# Define variables
+SERVICE_ACCOUNT="nuevo-usuario@groovy-form-424500-f2.iam.gserviceaccount.com"
+PROJECT_ID="groovy-form-424500-f2"
+
+# Asignar el rol Artifact Registry Reader
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role="roles/artifactregistry.reader"
+
+# Asignar el rol BigQuery Job User
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role="roles/bigquery.jobUser"
+
+# Asignar el rol BigQuery Read Session User
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role="roles/bigquery.readSessionUser"
+
+# Asignar el rol BigQuery Resource Viewer
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role="roles/bigquery.resourceViewer"
+
+# Asignar el rol Logs Writer
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role="roles/logging.logWriter"
+
+# Asignar el rol Monitoring Metric Writer
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role="roles/monitoring.metricWriter"
+
+# Asignar el rol Monitoring Viewer
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role="roles/monitoring.viewer"
+    
+# Asignar el rol Token Creator  
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role=roles/iam.serviceAccountOpenIdTokenCreator
+
+# Asignar el rol Vertex AI User
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT" \
+    --role="roles/aiplatform.user"
